@@ -1,0 +1,4 @@
+{
+    "debug.console.acceptSuggestionOnEnter": "on",
+    "cmake.ignoreCMakeListsMissing": true
+}
