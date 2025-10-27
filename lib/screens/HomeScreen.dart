@@ -1,4 +1,5 @@
 import 'package:evently_project/l10n/app_localizations.dart';
+import 'package:evently_project/screens/tabs/profile/profile_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -9,10 +10,11 @@ class HomeScreen extends StatelessWidget{
   @override
 Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBar(
-      backgroundColor: Colors.blue,
-      title: Text(AppLocalizations.of(context)!.language),
-    ),
+    // appBar: AppBar(
+    //   backgroundColor: Colors.blue,
+    //   title: Text(AppLocalizations.of(context)!.language),
+    // ),
+    body:ProfileTab(),
   );
 
 }

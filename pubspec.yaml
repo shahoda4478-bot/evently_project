@@ -33,11 +33,11 @@ flutter:
     - assets/translations/
 
 flutter_native_splash:
-  color: "#ffffff"
+  # color: "#ffffff"
   image: assets/image/splash_light.png
   android_12:
     image: assets/image/splash_light.png
-    color: "#ffffff"
+    # color: "#ffffff"
 
 
 
