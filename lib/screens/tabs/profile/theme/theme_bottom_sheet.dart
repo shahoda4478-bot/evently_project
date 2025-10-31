@@ -1,23 +1,25 @@
 import 'package:evently_project/providers/app_laguage_provider.dart';
+import 'package:evently_project/providers/app_theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:evently_project/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:evently_project/providers/app_theme_provider.dart';
 
-class LanguageBottomSheet extends StatefulWidget {
-  const LanguageBottomSheet({super.key});
+class themeBottomSheet extends StatefulWidget {
+  const themeBottomSheet({super.key});
 
   @override
-  State<LanguageBottomSheet> createState() => _LanguageBottomSheetState();
+  State<themeBottomSheet> createState() => _themeBottomSheetState();
 }
 
-class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
+class _themeBottomSheetState extends State<themeBottomSheet> {
  
 
   @override
   Widget build(BuildContext context) {
         var height = MediaQuery.of(context).size.height;
      var width = MediaQuery.of(context).size.width;
-      var languageProvider=Provider.of<AppLaguageProvider>(context);
+      var ThemeProvider=Provider.of<AppThemeProvider>(context);
     return Padding(
       padding:  EdgeInsets.symmetric(
         horizontal: width*0.04,
@@ -29,28 +31,28 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
         children: [
           InkWell(
             onTap: (){
-              // Change Language to English
-              languageProvider.changeLanguage('en');
+              // Change theme to dark
+              ThemeProvider.changeTheme(ThemeMode.dark);
             },
-            child: languageProvider.appLanguage=='en'?
+            child: ThemeProvider.isDarkMode()?
             getSelectedItemWidget(
-              language: AppLocalizations.of(context)!.english):
+              language: AppLocalizations.of(context)!.dark):
               getUnSelectedItemWidget(
-                language:AppLocalizations.of(context)!.english),
+                language:AppLocalizations.of(context)!.dark),
           ),
           SizedBox(
             height: height*0.02,
           ),
                   InkWell(
                     onTap: (){
-                      // Change Language to Arabic
-                      languageProvider.changeLanguage('ar');
+                      // Change theme to light
+                      ThemeProvider.changeTheme(ThemeMode.light);
                     },
-                    child: languageProvider.appLanguage=='ar'?
+                    child:! (ThemeProvider.isDarkMode())?
                     getSelectedItemWidget(
-                      language: AppLocalizations.of(context)!.arabic):
+                      language: AppLocalizations.of(context)!.light):
                     getUnSelectedItemWidget( 
-                      language: AppLocalizations.of(context)!.arabic)
+                      language: AppLocalizations.of(context)!.light)
                   ),
         ],
       ),

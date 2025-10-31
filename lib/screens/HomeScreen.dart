@@ -14,7 +14,9 @@ Widget build(BuildContext context) {
     //   backgroundColor: Colors.blue,
     //   title: Text(AppLocalizations.of(context)!.language),
     // ),
-    body:ProfileTab(),
+    body:ProfileTab(
+      
+    ),
   );
 
 }

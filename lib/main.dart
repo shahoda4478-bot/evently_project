@@ -1,5 +1,6 @@
 import 'package:evently_project/common/app_routs.dart';
 import 'package:evently_project/providers/app_laguage_provider.dart';
+import 'package:evently_project/providers/app_theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'screens/HomeScreen.dart';
@@ -16,8 +17,15 @@ void main() async {
       supportedLocales: [Locale('en'), Locale('ar')],
       path: 'assets/translations', // <-- change the path of the translation files 
       fallbackLocale: Locale('en'),
-      child: ChangeNotifierProvider<AppLaguageProvider>(
-        create: (context) => AppLaguageProvider(),
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<AppLaguageProvider>(
+            create: (context) => AppLaguageProvider(),
+          ),
+          ChangeNotifierProvider<AppThemeProvider>(
+            create: (context) => AppThemeProvider(),
+          ),
+        ],
         child: MyApp(),
       ),
     ),
@@ -30,6 +38,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var LanguageProvider = Provider.of<AppLaguageProvider>(context);
+    var ThemeProvider = Provider.of<AppThemeProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       
@@ -45,7 +54,8 @@ class MyApp extends StatelessWidget {
       
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeProvider.appTheme,
+
     
     );
   }
