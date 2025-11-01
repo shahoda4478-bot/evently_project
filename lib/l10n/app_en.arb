@@ -1,9 +1,13 @@
 {
-    "language":"Language",
-    "english":"English",
-    "arabic":"Arabic",
-    "theme":"Theme",
-    "dark":"Dark",
-    "light":"Light",
-    "logout":"Logout"
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "theme": "Theme",
+  "dark": "Dark",
+  "light": "Light",
+  "logout": "Logout",
+  "home": "Home",
+  "mab": "Map",
+  "love": "Favorites",
+  "profile": "Profile"
 }
